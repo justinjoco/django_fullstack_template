@@ -1,7 +1,8 @@
 from rest_framework import generics
 from .models import Book
 from .serializers import BookSerializer
-from django.http import HttpResponse
+from django.http import JsonResponse
+from django.core.cache import cache
 # Create your views here.
 
 class BookListView(generics.ListAPIView):
@@ -21,4 +22,6 @@ class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
         return super().update(request, *args, partial=True, **kwargs)  # Always allow partial updates
     
 def health_check(request):
-    return HttpResponse(status=200)
+    cache.set("ping", "pong", timeout=1)
+    value = cache.get("ping")
+    return JsonResponse({"ping": value}, status=200)
