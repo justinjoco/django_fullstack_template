@@ -1,9 +1,9 @@
-# Flask Fullstack project template
+# Django Fullstack project template
 Fullstack project template
 
 ## Stack
 - Frontend: React
-- Backend: Python-Flask, SQLAlchemy
+- Backend: Django REST Framework
 - Cache: Redis
 - DB: Postgres
 - Local development: Docker-compose
