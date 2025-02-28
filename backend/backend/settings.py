@@ -161,22 +161,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'INFO',  # You can change this to DEBUG, WARNING, etc.
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['console'],
-            'level': 'ERROR',  # Only log errors
-            'propagate': True,
-        },
-        'rest_framework': {
-            'handlers': ['console'],
-            'level': 'INFO',  # Set to 'DEBUG' if you want detailed DRF logs
-            'propagate': True,
-        },
-        'app': {  # Custom logger for cache seeding
+        'app': {  # Custom app logger
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': True,
