@@ -1,7 +1,6 @@
 from rest_framework import generics
 from .models import Book
 from .serializers import BookSerializer
-from django.http import HttpResponse
 from django.core.cache import cache
 from rest_framework.response import Response
 from .logging import logger
@@ -61,5 +60,3 @@ class BookDetailView(generics.RetrieveUpdateDestroyAPIView):
         logger.info(f"ID to delete: book:{instance.id}")
         instance.delete()
     
-def health_check(request):
-    return HttpResponse(status=200)
