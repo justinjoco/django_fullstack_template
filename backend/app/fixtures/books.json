@@ -1,0 +1,50 @@
+[
+    {
+        "model": "app.book",
+        "pk": "75d78c06-f134-4d9c-b1ae-c3e28d312faa",
+        "fields": {
+            "title": "Harry Potter",
+            "author": "JK Rowling",
+            "genre": "fantasy",
+            "description": "Kid goes to magic school",
+            "rating": "9.2",
+            "date_published": "2004-10-19 10:23:54+02"
+        }
+    },
+    {
+        "model": "app.book",
+        "pk": "1561d744-0124-4dbd-b43a-e37bca283c55",
+        "fields": {
+            "title": "Percy Jackson",
+            "author": "Rick Riordan",
+            "genre": "fantasy",
+            "description": "Kid goes to magic camp",
+            "rating": "9.0",
+            "date_published": "2004-10-19 10:23:54+02"
+        }
+    },
+    {
+        "model": "app.book",
+        "pk": "12e78d1b-f003-4d9f-a71c-1e66b3ed660a",
+        "fields": {
+            "title": "Twilight",
+            "author": "Stephanie Meyer",
+            "genre": "fantasy",
+            "description": "Girls falls in love with vampire",
+            "rating": "6.0",
+            "date_published": "2004-10-19 10:23:54+02"
+        }
+    },
+    {
+        "model": "app.book",
+        "pk": "027be1fa-eaaf-4a25-aa45-dc37a7fd9079",
+        "fields": {
+            "title": "Star Wars",
+            "author": "George Lucas",
+            "genre": "sci-fi",
+            "description": "Kid goes on space adventure",
+            "rating": "8.0",
+            "date_published": "2004-10-19 10:23:54+02"
+        }
+    } 
+]

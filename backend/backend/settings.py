@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import sys
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,16 +79,24 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'app_db',  # Replace with your DB name
-        'USER': 'admin',  # Replace with your DB username
-        'PASSWORD': 'password',  # Replace with your DB password
-        'HOST': 'postgres',  # Or the IP/hostname of your database server
-        'PORT': '5432',  # Default PostgreSQL port
+if os.getenv('DJANGO_ENV') == 'production':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME', 'mydatabase'),
+            'USER': os.getenv('DB_USER', 'myuser'),
+            'PASSWORD': os.getenv('DB_PASSWORD', 'mypassword'),
+            'HOST': os.getenv('DB_HOST', 'localhost'),
+            'PORT': os.getenv('DB_PORT', '5432'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 CACHES = {
     "default": {
