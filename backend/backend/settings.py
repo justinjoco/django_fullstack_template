@@ -101,10 +101,10 @@ else:
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://default@cache:6379/0",
+        "LOCATION": os.getenv('REDIS_URL', 'redis_url'),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "mypassword"
+            "PASSWORD": os.getenv('REDIS_PASSWORD', "mypassword")
         }
     }
 }
